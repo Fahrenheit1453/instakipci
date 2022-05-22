@@ -1,6 +1,6 @@
 #!/bin/bash
 # instakipci v2.0
-# coded by : CANPOLAT GÖKKAYA
+# coded by : OGUZHAN ONAL
 # github.com/coderbycanpolat
 
 
@@ -222,7 +222,7 @@ sleep 3
 
 done
 printf " \e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;77m 60 Saniye Bekleniyor...\e[0m\n"
-sleep 60
+sleep 480
 #unfollow
 for celeb in $(cat celeb_id); do
 data='{"_uuid":"'$guid'", "_uid":"'$username_id'", "user_id":"'$celeb'", "_csrftoken":"'$var2'"}'
@@ -242,7 +242,7 @@ fi
 sleep 3
 done
 printf " \e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;77m Ban önlemek için 60 saniye bekleniyor...\e[0m\n"
-sleep 60
+sleep 480
 
 
 done
