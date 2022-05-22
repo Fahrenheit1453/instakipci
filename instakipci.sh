@@ -1,6 +1,6 @@
 #!/bin/bash
 # instakipci v2.0
-# coded by : CANPOLAT GÖKKAYA
+# coded by : OGUZHAN ONAL
 # github.com/coderbycanpolat
 
 
@@ -26,7 +26,7 @@ echo -e " ❂ 𝐈𝐍𝐒𝐓𝐀𝐆𝐑𝐀𝐌 𝐎𝐑𝐆𝐀𝐍𝐈𝐊 
 
 
 
-echo -e "       coded  by - \e[1;92mcanpolatgkky "
+echo -e "       coded  by - \e[1;92oguzbey.official "
 
 }
 
@@ -201,7 +201,7 @@ for celeb in $(cat celeb_id); do
 
 data='{"_uuid":"'$guid'", "_uid":"'$username_id'", "user_id":"'$celeb'", "_csrftoken":"'$var2'"}'
 hmac=$(echo -n "$data" | openssl dgst -sha256 -hmac "${ig_sig}" | cut -d " " -f2)
-printf " \e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m  Tekrar takip etmeye çalışıyorum %s ..." $celeb
+printf " \e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m  Tekrar takip ediyorum %s ..." $celeb
 
 check_follow=$(curl -s -L -b cookie.$user -d "ig_sig_key_version=4&signed_body=$hmac.$data" -s --user-agent 'User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)"' -w "\n%{http_code}\n" -H "$header" "https://i.instagram.com/api/v1/friendships/create/$celeb/" | grep -o '"following": true')
 
@@ -221,13 +221,13 @@ fi
 sleep 3
 
 done
-printf " \e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;77m 60 Saniye Bekleniyor...\e[0m\n"
-sleep 60
+printf " \e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;77m 480 Saniye Bekleniyor...\e[0m\n"
+sleep 480
 #unfollow
 for celeb in $(cat celeb_id); do
 data='{"_uuid":"'$guid'", "_uid":"'$username_id'", "user_id":"'$celeb'", "_csrftoken":"'$var2'"}'
 hmac=$(echo -n "$data" | openssl dgst -sha256 -hmac "${ig_sig}" | cut -d " " -f2)
-printf " \e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Takip etmeyi bırakmaya çalışıyorum %s ..." $celeb
+printf " \e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Takip etmeyi birakiyorum %s ..." $celeb
 check_unfollow=$(curl -s -L -b cookie.$user -d "ig_sig_key_version=4&signed_body=$hmac.$data" -s --user-agent 'User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)"' -w "\n%{http_code}\n" -H "$header" "https://i.instagram.com/api/v1/friendships/destroy/$celeb/" | grep -o '"following": false' )
 
 if [[ $check_unfollow == "a" ]]; then
@@ -242,7 +242,7 @@ fi
 sleep 3
 done
 printf " \e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;77m Ban önlemek için 60 saniye bekleniyor...\e[0m\n"
-sleep 60
+sleep 480
 
 
 done
